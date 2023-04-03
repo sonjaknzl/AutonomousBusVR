@@ -1,0 +1,294 @@
+fileFormatVersion: 2
+guid: 492b0908fd247d44e851b3acb57fecd7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Autonomous_Bus_Door_L_1
+    100004: Autonomous_Bus_Door_L_2
+    100006: Autonomous_Bus_Door_R_1
+    100008: Autonomous_Bus_Door_R_2
+    100010: Autonomous_Bus_Main
+    100012: Autonomous_Bus_Spindle_F_L
+    100014: Autonomous_Bus_Spindle_F_R
+    100016: Autonomous_Bus_Spindle_R_L
+    100018: Autonomous_Bus_Spindle_R_R
+    100020: Autonomous_Bus_Steering_L
+    100022: Autonomous_Bus_Steering_R
+    100024: Autonomous_Bus_Susp_F_L
+    100026: Autonomous_Bus_Susp_F_R
+    100028: Autonomous_Bus_Susp_R_L
+    100030: Autonomous_Bus_Susp_R_R
+    100032: Autonomous_Bus_Wheel_F_L
+    100034: Autonomous_Bus_Wheel_F_R
+    100036: Autonomous_Bus_Wheel_R_L
+    100038: Autonomous_Bus_Wheel_R_R
+    100040: //RootNode
+    100042: Bone
+    100044: Bone.001
+    100046: Bone.001_end
+    100048: Bone.002
+    100050: Bone.003
+    100052: Bone.003_end
+    100054: Bone_C
+    100056: Root
+    400000: Armature
+    400002: Autonomous_Bus_Door_L_1
+    400004: Autonomous_Bus_Door_L_2
+    400006: Autonomous_Bus_Door_R_1
+    400008: Autonomous_Bus_Door_R_2
+    400010: Autonomous_Bus_Main
+    400012: Autonomous_Bus_Spindle_F_L
+    400014: Autonomous_Bus_Spindle_F_R
+    400016: Autonomous_Bus_Spindle_R_L
+    400018: Autonomous_Bus_Spindle_R_R
+    400020: Autonomous_Bus_Steering_L
+    400022: Autonomous_Bus_Steering_R
+    400024: Autonomous_Bus_Susp_F_L
+    400026: Autonomous_Bus_Susp_F_R
+    400028: Autonomous_Bus_Susp_R_L
+    400030: Autonomous_Bus_Susp_R_R
+    400032: Autonomous_Bus_Wheel_F_L
+    400034: Autonomous_Bus_Wheel_F_R
+    400036: Autonomous_Bus_Wheel_R_L
+    400038: Autonomous_Bus_Wheel_R_R
+    400040: //RootNode
+    400042: Bone
+    400044: Bone.001
+    400046: Bone.001_end
+    400048: Bone.002
+    400050: Bone.003
+    400052: Bone.003_end
+    400054: Bone_C
+    400056: Root
+    2100000: Bus_Main
+    2100002: Bus_Interior
+    2100004: Bus_Emission
+    2100006: Bus_Glass
+    2300000: Autonomous_Bus_Main
+    2300002: Autonomous_Bus_Spindle_F_L
+    2300004: Autonomous_Bus_Spindle_F_R
+    2300006: Autonomous_Bus_Spindle_R_L
+    2300008: Autonomous_Bus_Spindle_R_R
+    2300010: Autonomous_Bus_Steering_L
+    2300012: Autonomous_Bus_Steering_R
+    2300014: Autonomous_Bus_Susp_F_L
+    2300016: Autonomous_Bus_Susp_F_R
+    2300018: Autonomous_Bus_Susp_R_L
+    2300020: Autonomous_Bus_Susp_R_R
+    2300022: Autonomous_Bus_Wheel_F_L
+    2300024: Autonomous_Bus_Wheel_F_R
+    2300026: Autonomous_Bus_Wheel_R_L
+    2300028: Autonomous_Bus_Wheel_R_R
+    2300030: Autonomous_Bus_Door_L_1
+    2300032: Autonomous_Bus_Door_L_2
+    2300034: Autonomous_Bus_Door_R_1
+    2300036: Autonomous_Bus_Door_R_2
+    3300000: Autonomous_Bus_Main
+    3300002: Autonomous_Bus_Spindle_F_L
+    3300004: Autonomous_Bus_Spindle_F_R
+    3300006: Autonomous_Bus_Spindle_R_L
+    3300008: Autonomous_Bus_Spindle_R_R
+    3300010: Autonomous_Bus_Steering_L
+    3300012: Autonomous_Bus_Steering_R
+    3300014: Autonomous_Bus_Susp_F_L
+    3300016: Autonomous_Bus_Susp_F_R
+    3300018: Autonomous_Bus_Susp_R_L
+    3300020: Autonomous_Bus_Susp_R_R
+    3300022: Autonomous_Bus_Wheel_F_L
+    3300024: Autonomous_Bus_Wheel_F_R
+    3300026: Autonomous_Bus_Wheel_R_L
+    3300028: Autonomous_Bus_Wheel_R_R
+    3300030: Autonomous_Bus_Door_L_1
+    3300032: Autonomous_Bus_Door_L_2
+    3300034: Autonomous_Bus_Door_R_1
+    3300036: Autonomous_Bus_Door_R_2
+    4300000: Autonomous_Bus_Main
+    4300002: Autonomous_Bus_Susp_F_R
+    4300004: Autonomous_Bus_Door_L_1
+    4300006: Autonomous_Bus_Door_R_1
+    4300008: Autonomous_Bus_Wheel_F_R
+    4300010: Autonomous_Bus_Wheel_F_L
+    4300012: Autonomous_Bus_Wheel_R_L
+    4300014: Autonomous_Bus_Wheel_R_R
+    4300016: Autonomous_Bus_Spindle_R_R
+    4300018: Autonomous_Bus_Spindle_R_L
+    4300020: Autonomous_Bus_Spindle_F_L
+    4300022: Autonomous_Bus_Spindle_F_R
+    4300024: Autonomous_Bus_Steering_R
+    4300026: Autonomous_Bus_Susp_F_L
+    4300028: Autonomous_Bus_Steering_L
+    4300030: Autonomous_Bus_Susp_R_L
+    4300032: Autonomous_Bus_Susp_R_R
+    4300034: Autonomous_Bus_Door_R_2
+    4300036: Autonomous_Bus_Door_L_2
+    7400000: Armature|Door_Close
+    7400002: Armature|Door_Open
+    7400004: Armature|Door_Open (1)
+    9500000: //RootNode
+    13700000: Autonomous_Bus_Door_L_1
+    13700002: Autonomous_Bus_Door_L_2
+    13700004: Autonomous_Bus_Door_R_1
+    13700006: Autonomous_Bus_Door_R_2
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bus_Emission
+    second: {fileID: 2100000, guid: 8c6d5a54f6e3963488caf476ff3d10ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bus_Glass
+    second: {fileID: 2100000, guid: c13eece3895aba54994a32568e4a193b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bus_Interior
+    second: {fileID: 2100000, guid: 4ae0d5cd0e1157f48844a94a7cf3a74e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bus_Main
+    second: {fileID: 2100000, guid: 6473dbc9bf8dda0409e554268ffb4790, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Door_Close
+      takeName: Armature|Door_Close
+      firstFrame: 0
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Door_Open
+      takeName: Armature|Door_Open
+      firstFrame: 0
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

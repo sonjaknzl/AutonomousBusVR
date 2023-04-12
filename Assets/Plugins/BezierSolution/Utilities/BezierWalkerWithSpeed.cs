@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace BezierSolution
 {
@@ -9,6 +10,11 @@ namespace BezierSolution
 	{
 		public BezierSpline spline;
 		public TravelMode travelMode;
+		private int count = 0;
+
+		public Animator animator;
+
+		public BezierSpline[] mySplines;
 
 		public float speed = 5f;
 		[SerializeField]
@@ -21,6 +27,23 @@ namespace BezierSolution
 		{
 			get { return m_normalizedT; }
 			set { m_normalizedT = value; }
+		}
+
+		IEnumerator switchSpline(){
+			animator.SetTrigger("open");
+			yield return new WaitForSeconds(10f);
+			if(count < mySplines.Length){
+				spline = mySplines[count];
+				m_normalizedT = 0f;
+				onPathCompletedCalledAt1 = false;
+				onPathCompletedCalledAt0 = false;
+				isGoingForward = true;
+				count++;
+			}
+		}
+		IEnumerator wait(){
+			yield return new WaitForSeconds(3f);
+			Execute( Time.deltaTime );
 		}
 
 		//public float movementLerpModifier = 10f;
@@ -37,11 +60,12 @@ namespace BezierSolution
 
 		private void Update()
 		{
-			Execute( Time.deltaTime );
+			StartCoroutine(wait());
 		}
 
 		public override void Execute( float deltaTime )
 		{
+			
 			float targetSpeed = ( isGoingForward ) ? speed : -speed;
 
 			Vector3 targetPos = spline.MoveAlongSpline( ref m_normalizedT, targetSpeed * deltaTime );
@@ -82,15 +106,19 @@ namespace BezierSolution
 					if( !onPathCompletedCalledAt1 )
 					{
 						onPathCompletedCalledAt1 = true;
+
+
 #if UNITY_EDITOR
 						if( UnityEditor.EditorApplication.isPlaying )
 #endif
 							onPathCompleted.Invoke();
+							 StartCoroutine(switchSpline());
 					}
 				}
 				else
 				{
 					onPathCompletedCalledAt1 = false;
+					
 				}
 			}
 			else
@@ -114,6 +142,8 @@ namespace BezierSolution
 						if( UnityEditor.EditorApplication.isPlaying )
 #endif
 							onPathCompleted.Invoke();
+
+							onPathCompletedCalledAt0 = false;
 					}
 				}
 				else

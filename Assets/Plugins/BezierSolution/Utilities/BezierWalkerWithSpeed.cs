@@ -31,7 +31,9 @@ namespace BezierSolution
 
 		IEnumerator switchSpline(){
 			animator.SetTrigger("open");
-			yield return new WaitForSeconds(10f);
+			yield return new WaitForSeconds(5f);
+			animator.SetTrigger("close");
+			yield return new WaitForSeconds(5f);
 			if(count < mySplines.Length){
 				spline = mySplines[count];
 				m_normalizedT = 0f;
@@ -42,8 +44,8 @@ namespace BezierSolution
 			}
 		}
 		IEnumerator wait(){
-			yield return new WaitForSeconds(3f);
-			Execute( Time.deltaTime );
+			yield return new WaitForSeconds(4f);
+			Execute(Time.deltaTime);
 		}
 
 		//public float movementLerpModifier = 10f;

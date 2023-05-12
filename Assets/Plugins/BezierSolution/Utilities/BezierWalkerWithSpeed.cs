@@ -14,6 +14,7 @@ namespace BezierSolution
 		private AudioSource audioSource;
 
 
+
 		public Animator animator;
 
 		public BezierSpline[] mySplines;
@@ -66,7 +67,13 @@ namespace BezierSolution
 		private bool onPathCompletedCalledAt0 = false;
 
 		private void Start(){
+			Invoke("PlayDelayedSound", 4f);
+
+		}
+
+		private void PlayDelayedSound(){
 			audioSource = GetComponent<AudioSource>();
+			audioSource.Play();
 		}
 		private void Update()
 		{

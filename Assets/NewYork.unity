@@ -790,7 +790,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00f0c1e887825eda86e608b98e11727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundDataList: []
+  soundDataList:
+  - audioClip: {fileID: 0}
+    startAfter: 0
 --- !u!1 &784100152
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fb5b1f9d99b24f7d84a66dee1344eee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -505.95
+      value: -506.11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fb5b1f9d99b24f7d84a66dee1344eee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -998,7 +1000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fb5b1f9d99b24f7d84a66dee1344eee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 564.26
+      value: 569.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3fb5b1f9d99b24f7d84a66dee1344eee, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1113,7 +1115,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1ec15496172ea4c2aadeaf73b08b8a96, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

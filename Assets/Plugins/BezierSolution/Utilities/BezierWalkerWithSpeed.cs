@@ -12,6 +12,7 @@ namespace BezierSolution
 		public TravelMode travelMode;
 		private int count = 0;
 		private AudioSource audioSource;
+		public AudioSource audioSource2;
 
 
 
@@ -33,8 +34,10 @@ namespace BezierSolution
 		}
 
 		IEnumerator switchSpline(){
+			audioSource2.Play();
 			animator.SetTrigger("open");
 			yield return new WaitForSeconds(5f);
+			audioSource2.Play();
 			animator.SetTrigger("close");
 			yield return new WaitForSeconds(5f);
 			if(count < mySplines.Length){

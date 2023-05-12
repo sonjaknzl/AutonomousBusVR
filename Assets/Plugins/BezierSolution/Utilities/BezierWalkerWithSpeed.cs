@@ -11,6 +11,8 @@ namespace BezierSolution
 		public BezierSpline spline;
 		public TravelMode travelMode;
 		private int count = 0;
+		private AudioSource audioSource;
+
 
 		public Animator animator;
 
@@ -40,13 +42,16 @@ namespace BezierSolution
 				onPathCompletedCalledAt1 = false;
 				onPathCompletedCalledAt0 = false;
 				isGoingForward = true;
+				audioSource.UnPause();
 				count++;
 			}
 		}
 		IEnumerator wait(){
 			yield return new WaitForSeconds(4f);
 			Execute(Time.deltaTime);
+
 		}
+		
 
 		//public float movementLerpModifier = 10f;
 		public float rotationLerpModifier = 10f;
@@ -60,6 +65,9 @@ namespace BezierSolution
 		private bool onPathCompletedCalledAt1 = false;
 		private bool onPathCompletedCalledAt0 = false;
 
+		private void Start(){
+			audioSource = GetComponent<AudioSource>();
+		}
 		private void Update()
 		{
 			StartCoroutine(wait());
@@ -114,6 +122,7 @@ namespace BezierSolution
 						if( UnityEditor.EditorApplication.isPlaying )
 #endif
 							onPathCompleted.Invoke();
+							audioSource.Pause();
 							 StartCoroutine(switchSpline());
 					}
 				}

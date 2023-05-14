@@ -11,16 +11,21 @@ namespace BezierSolution
 		public BezierSpline spline;
 		public TravelMode travelMode;
 		private int count = 0;
-		private AudioSource audioSource;
-		public AudioSource audioSource2;
+		private bool initiateBusDrive = false;
+		private AudioSource audioSourceBackground;
+		public AudioSource audioSourceDoor;
+		public AudioSource audioSourceAnnouncement;
+		public AudioClip citySound; 
+		public AudioClip busSound; 
 
+		public AudioClip[] announcements;
 
 
 		public Animator animator;
 
 		public BezierSpline[] mySplines;
 
-		public float speed = 5f;
+		public float speed;
 		[SerializeField]
 		[Range( 0f, 1f )]
 		private float m_normalizedT = 0f;
@@ -34,26 +39,54 @@ namespace BezierSolution
 		}
 
 		IEnumerator switchSpline(){
-			audioSource2.Play();
+			// open bus door and switch/ play sound
+			audioSourceDoor.Play();
 			animator.SetTrigger("open");
-			yield return new WaitForSeconds(5f);
-			audioSource2.Play();
+			yield return new WaitForSeconds(4f);
+			audioSourceBackground.clip = citySound;
+			audioSourceBackground.Play();
+			
+			audioSourceAnnouncement.clip = announcements[count+1];
+			audioSourceAnnouncement.Play();
+
+			while (audioSourceAnnouncement.isPlaying)
+			{
+				yield return null;
+			}
+
+			audioSourceDoor.Play();
 			animator.SetTrigger("close");
 			yield return new WaitForSeconds(5f);
-			if(count < mySplines.Length){
+			audioSourceBackground.clip = busSound;
+			audioSourceBackground.Play();
+
+			// actually switch splines
+			if(count < mySplines.Length){ 
 				spline = mySplines[count];
 				m_normalizedT = 0f;
 				onPathCompletedCalledAt1 = false;
 				onPathCompletedCalledAt0 = false;
 				isGoingForward = true;
-				audioSource.UnPause();
+				audioSourceBackground.UnPause();
 				count++;
 			}
 		}
 		IEnumerator wait(){
-			yield return new WaitForSeconds(4f);
-			Execute(Time.deltaTime);
+			audioSourceBackground.clip = citySound;
+			audioSourceBackground.Play();
+			yield return new WaitForSeconds(4f); // bus animation open time
 
+			audioSourceAnnouncement.clip = announcements[0];
+			audioSourceAnnouncement.Play();
+			while (audioSourceAnnouncement.isPlaying)
+			{
+				yield return null;
+			}
+			animator.SetTrigger("close");
+			yield return new WaitForSeconds(5f); // bus animation close time
+			audioSourceBackground.clip = busSound;
+			audioSourceBackground.Play();
+			initiateBusDrive= true;
 		}
 		
 
@@ -69,18 +102,20 @@ namespace BezierSolution
 		private bool onPathCompletedCalledAt1 = false;
 		private bool onPathCompletedCalledAt0 = false;
 
-		private void Start(){
-			Invoke("PlayDelayedSound", 4f);
+		private void Awake(){
+			audioSourceBackground = GetComponent<AudioSource>();
+			StartCoroutine(wait());
 
 		}
 
 		private void PlayDelayedSound(){
-			audioSource = GetComponent<AudioSource>();
-			audioSource.Play();
+			audioSourceBackground.Play();
 		}
 		private void Update()
 		{
-			StartCoroutine(wait());
+			if(initiateBusDrive){
+				Execute(Time.deltaTime);
+			}
 		}
 
 		public override void Execute( float deltaTime )
@@ -132,7 +167,7 @@ namespace BezierSolution
 						if( UnityEditor.EditorApplication.isPlaying )
 #endif
 							onPathCompleted.Invoke();
-							audioSource.Pause();
+							audioSourceBackground.Pause();
 							 StartCoroutine(switchSpline());
 					}
 				}

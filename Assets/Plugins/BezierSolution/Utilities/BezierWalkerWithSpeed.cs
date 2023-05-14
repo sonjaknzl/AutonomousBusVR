@@ -10,8 +10,8 @@ namespace BezierSolution
 	{
 		public BezierSpline spline;
 		public TravelMode travelMode;
-		private int count = 0;
-		private bool initiateBusDrive = false;
+		public int count = 0;
+		public bool playAnno = false;
 		private AudioSource audioSourceBackground;
 		public AudioSource audioSourceDoor;
 		public AudioSource audioSourceAnnouncement;
@@ -46,48 +46,37 @@ namespace BezierSolution
 			audioSourceBackground.clip = citySound;
 			audioSourceBackground.Play();
 			
-			audioSourceAnnouncement.clip = announcements[count+1];
-			audioSourceAnnouncement.Play();
 
-			while (audioSourceAnnouncement.isPlaying)
-			{
-				yield return null;
-			}
+			// while (audioSourceAnnouncement.isPlaying)
+			// {
+			// 	yield return null;
+			// }
 
-			audioSourceDoor.Play();
-			animator.SetTrigger("close");
-			yield return new WaitForSeconds(5f);
-			audioSourceBackground.clip = busSound;
-			audioSourceBackground.Play();
-
-			// actually switch splines
-			if(count < mySplines.Length){ 
-				spline = mySplines[count];
-				m_normalizedT = 0f;
-				onPathCompletedCalledAt1 = false;
-				onPathCompletedCalledAt0 = false;
-				isGoingForward = true;
-				audioSourceBackground.UnPause();
-				count++;
-			}
+			
 		}
-		IEnumerator wait(){
-			audioSourceBackground.clip = citySound;
-			audioSourceBackground.Play();
-			yield return new WaitForSeconds(4f); // bus animation open time
+		// IEnumerator wait(){
+			// audioSourceBackground.clip = citySound;
+			// audioSourceBackground.Play();
+			// yield return new WaitForSeconds(1f); // bus animation open time
 
-			audioSourceAnnouncement.clip = announcements[0];
-			audioSourceAnnouncement.Play();
-			while (audioSourceAnnouncement.isPlaying)
-			{
-				yield return null;
-			}
-			animator.SetTrigger("close");
-			yield return new WaitForSeconds(5f); // bus animation close time
-			audioSourceBackground.clip = busSound;
-			audioSourceBackground.Play();
-			initiateBusDrive= true;
-		}
+			// audioSourceAnnouncement.clip = announcements[0];
+			// audioSourceAnnouncement.Play();
+			// while (audioSourceAnnouncement.isPlaying)
+			// {
+			// 	yield return null;
+			// }
+			// animator.SetTrigger("close");
+			// yield return new WaitForSeconds(5f); // bus animation close time
+		// 	audioSourceBackground.clip = busSound;
+		// 	audioSourceBackground.Play();
+		// 	initiateBusDrive= true;
+		// }
+		// IEnumerator waitForAudio(){
+		// 	yield return new WaitForSeconds(1f);
+
+		// 	audioSourceAnnouncement.clip = announcements[1];
+		// 	audioSourceAnnouncement.Play();
+		// }
 		
 
 		//public float movementLerpModifier = 10f;
@@ -104,19 +93,47 @@ namespace BezierSolution
 
 		private void Awake(){
 			audioSourceBackground = GetComponent<AudioSource>();
-			StartCoroutine(wait());
-
-		}
-
-		private void PlayDelayedSound(){
+			audioSourceBackground.clip = busSound;
 			audioSourceBackground.Play();
+			// StartCoroutine(wait());
 		}
+
 		private void Update()
 		{
-			if(initiateBusDrive){
-				Execute(Time.deltaTime);
-			}
+			Execute(Time.deltaTime);
 		}
+
+		private IEnumerator PlayAnnouncement()
+		{
+			Debug.Log("Play Announcement");
+			audioSourceAnnouncement.clip = announcements[count];
+			audioSourceAnnouncement.Play();
+
+			while (audioSourceAnnouncement.isPlaying)
+			{
+				yield return null;
+			}
+			animator.SetTrigger("close");
+			audioSourceDoor.Play();
+			yield return new WaitForSeconds(5f);
+			audioSourceBackground.clip = busSound;
+			audioSourceBackground.Play();
+
+			// actually switch splines
+			if(count < mySplines.Length){ 
+				spline = mySplines[count];
+				m_normalizedT = 0f;
+				onPathCompletedCalledAt1 = false;
+				onPathCompletedCalledAt0 = false;
+				isGoingForward = true;
+				audioSourceBackground.UnPause();
+			}
+			count++;
+			playAnno = false;
+			audioSourceBackground.Pause();
+
+		}
+
 
 		public override void Execute( float deltaTime )
 		{
@@ -129,6 +146,21 @@ namespace BezierSolution
 			//transform.position = Vector3.Lerp( transform.position, targetPos, movementLerpModifier * deltaTime );
 
 			bool movingForward = MovingForward;
+
+			if (!playAnno && count < 3)
+            {
+				if(m_normalizedT >= 0.2f && count == 0){
+                	playAnno = true;
+                	StartCoroutine(PlayAnnouncement());
+				} else if(m_normalizedT >= 0.65f && count == 1){
+					playAnno = true;
+                	StartCoroutine(PlayAnnouncement());
+				} else if(m_normalizedT >= 0.6f && count == 2){
+					playAnno = true;
+                	StartCoroutine(PlayAnnouncement());
+				}
+            }
+
 
 			if( lookAt == LookAtMode.Forward )
 			{

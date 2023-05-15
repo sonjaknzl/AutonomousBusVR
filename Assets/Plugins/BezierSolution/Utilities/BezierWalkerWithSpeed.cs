@@ -8,6 +8,7 @@ namespace BezierSolution
 	[HelpURL( "https://github.com/yasirkula/UnityBezierSolution" )]
 	public class BezierWalkerWithSpeed : BezierWalker
 	{
+		public bool playfulAnnouncements;
 		public BezierSpline spline;
 		public TravelMode travelMode;
 		public int count = 0;
@@ -19,9 +20,11 @@ namespace BezierSolution
 		public AudioClip busSound; 
 
 		public AudioClip[] announcements;
+		public AudioClip[] shortAnnouncements;
 
 
 		public Animator animator;
+		private float [] tValAnnouncement = new float[] {0.2f, 0.65f, 0.6f};
 
 		public BezierSpline[] mySplines;
 
@@ -96,6 +99,9 @@ namespace BezierSolution
 			audioSourceBackground.clip = busSound;
 			audioSourceBackground.Play();
 			// StartCoroutine(wait());
+			if(!playfulAnnouncements){
+				tValAnnouncement = new float [] {0.8f, 0.9f, 0.9f};
+			}
 		}
 
 		private void Update()
@@ -106,12 +112,20 @@ namespace BezierSolution
 		private IEnumerator PlayAnnouncement()
 		{
 			Debug.Log("Play Announcement");
-			audioSourceAnnouncement.clip = announcements[count];
-			audioSourceAnnouncement.Play();
+			if(playfulAnnouncements){
+				audioSourceAnnouncement.clip = announcements[count];
+				audioSourceAnnouncement.Play();
+			} else{
+				audioSourceAnnouncement.clip = shortAnnouncements[count];
+				audioSourceAnnouncement.Play();
 
 			while (audioSourceAnnouncement.isPlaying)
 			{
 				yield return null;
+			}
+			if(!playfulAnnouncements){
+				yield return new WaitForSeconds(5f);
+			}
 			}
 			animator.SetTrigger("close");
 			audioSourceDoor.Play();
@@ -149,13 +163,14 @@ namespace BezierSolution
 
 			if (!playAnno && count < 3)
             {
-				if(m_normalizedT >= 0.2f && count == 0){
+
+				if(m_normalizedT >= tValAnnouncement[0] && count == 0){
                 	playAnno = true;
                 	StartCoroutine(PlayAnnouncement());
-				} else if(m_normalizedT >= 0.65f && count == 1){
+				} else if(m_normalizedT >= tValAnnouncement[1] && count == 1){
 					playAnno = true;
                 	StartCoroutine(PlayAnnouncement());
-				} else if(m_normalizedT >= 0.6f && count == 2){
+				} else if(m_normalizedT >= tValAnnouncement[2] && count == 2){
 					playAnno = true;
                 	StartCoroutine(PlayAnnouncement());
 				}

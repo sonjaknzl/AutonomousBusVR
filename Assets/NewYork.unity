@@ -1324,6 +1324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148310ac13c958d4c93f53cdfe985375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playfulAnnouncements: 0
   spline: {fileID: 1094843101}
   travelMode: 0
   count: 0
@@ -1335,6 +1336,10 @@ MonoBehaviour:
   announcements:
   - {fileID: 8300000, guid: 1c1730ef969f04634a3a2a4b902ec826, type: 3}
   - {fileID: 8300000, guid: 3dc8a7210b9144cd69eda74eaf472d15, type: 3}
+  - {fileID: 8300000, guid: 416cf2e08a4504f798d9cc9671aee4f5, type: 3}
+  shortAnnouncements:
+  - {fileID: 8300000, guid: e5aa972c468d243d9ad2b1c25a51e797, type: 3}
+  - {fileID: 8300000, guid: 0fca14623e1f14303ad2930c6c841e41, type: 3}
   - {fileID: 8300000, guid: 416cf2e08a4504f798d9cc9671aee4f5, type: 3}
   animator: {fileID: 1643332359}
   mySplines:

@@ -1,4 +1,4 @@
-# autonomousbus
+# AutonomousBusVR
 
 <img width="617" alt="vrproject-2" src="https://github.com/sonjaknzl/autonomousbus/assets/92093306/99303e07-6307-4ce4-b0b3-c9a3d95672bf">
 
@@ -7,7 +7,7 @@
 
 ## About
 
-This unity simulation was part of a university research project. It aimed to explore enhancing tourists' sense of place with an autonomous shuttle bus. The research question posed was: “How can auditory information provided by announcements of bus drivers in an autonomous shuttle bus enhance a tourists' sense of place?” 
+This unity simulation was part of a university research project in the realm of virtual reality. It aimed to explore enhancing tourists' sense of place with an autonomous shuttle bus. The research question posed was: “How can auditory information provided by announcements of bus drivers in an autonomous shuttle bus enhance a tourists' sense of place?” 
 
 Two auditory concepts to be tested were created and therefore two simulations with different bus driver announcements were implemented.
 

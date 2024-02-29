@@ -25,4 +25,5 @@ The chosen route connected the following points of interests:
 - Carnegie Hall
 - Museum of Modern Art
 
-<img src="(https://github.com/sonjaknzl/autonomousbus/assets/92093306/cf602dc9-ff24-4bb7-a1e3-77df628fa624" alt="newyork-2" width="617">
+
+<img src="https://github.com/sonjaknzl/autonomousbus/assets/92093306/b331b4a0-0a49-48f6-b8e8-1ebe147da9e4" alt="ny-map-2" width="617">
